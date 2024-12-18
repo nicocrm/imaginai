@@ -6,7 +6,8 @@ class ImageViewModel extends ChangeNotifier {
 
   Future<void> loadImage() async {
     // TODO: Implement image loading logic
-    _imageUrl = 'https://picsum.photos/id/237/200/300';
+    final randomValue = DateTime.now().millisecondsSinceEpoch;
+    _imageUrl = "https://picsum.photos/200/300?rnd=$randomValue";
     notifyListeners();
   }
 }
