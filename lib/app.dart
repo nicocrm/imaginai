@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:image_generator/ui/image_screen.dart';
-import 'package:image_generator/ui/vm/image_view_model.dart';
-import 'package:image_generator/services/openai_service.dart';
+import 'package:imaginai/ui/image_screen.dart';
+import 'package:imaginai/ui/vm/image_view_model.dart';
+import 'package:imaginai/services/openai_service.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

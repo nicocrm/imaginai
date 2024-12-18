@@ -1,6 +1,6 @@
 {
-    "name": "image_generator",
-    "short_name": "image_generator",
+    "name": "imaginai",
+    "short_name": "imaginai",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

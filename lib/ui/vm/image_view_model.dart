@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:image_generator/core/result.dart';
-import 'package:image_generator/services/openai_service.dart';
+import 'package:imaginai/core/result.dart';
+import 'package:imaginai/services/openai_service.dart';
 
 class ImageViewModel extends ChangeNotifier {
   final OpenAIService _openAIService;

@@ -1,4 +1,4 @@
-package com.example.image_generator
+package com.example.imaginai
 
 import io.flutter.embedding.android.FlutterActivity
 
