@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_generator/ui/image_screen.dart';
 import 'package:image_generator/ui/vm/image_view_model.dart';
+import 'package:image_generator/services/openai_service.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -15,7 +16,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    imageViewModel = ImageViewModel();
+    final openAIService = OpenAIService();
+    imageViewModel = ImageViewModel(openAIService);
   }
 
   @override

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:image_generator/core/result.dart';
+import 'package:image_generator/services/openai_service.dart';
 
 class ImageViewModel extends ChangeNotifier {
-  String? _imageUrl;
-  String? get imageUrl => _imageUrl;
+  final OpenAIService _openAIService;
+  Result<String>? _imageResult;
+  Result<String>? get imageResult => _imageResult;
 
-  Future<void> loadImage() async {
-    // TODO: Implement image loading logic
-    final randomValue = DateTime.now().millisecondsSinceEpoch;
-    _imageUrl = "https://picsum.photos/200/300?rnd=$randomValue";
+  ImageViewModel(this._openAIService);
+
+  Future<Result<String>> loadImage() async {
+    // Use OpenAIService to generate an image
+    final prompt = 'A beautiful landscape with mountains and a lake';
+    _imageResult = await _openAIService.generateImage(prompt);
+    
     notifyListeners();
+    return _imageResult!;
   }
 }
