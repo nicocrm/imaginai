@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:image_generator/ui/home_screen.dart';
+import 'package:image_generator/ui/image_screen.dart';
+import 'package:image_generator/ui/vm/image_view_model.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late ImageViewModel imageViewModel;
+
+  @override
+  void initState() {
+    super.initState();
+    imageViewModel = ImageViewModel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(title: 'Image Generator'),
+      home: ImageScreen(title: 'Image Generator', vm: imageViewModel),
     );
   }
 }
