@@ -16,6 +16,7 @@ class OpenAIService {
 
   Future<Result<String>> generateImage(String prompt) async {
     try {
+      return Result.success("https://picsum.photos/800/600");
       final response = await http.post(
         Uri.parse(endpoint),
         headers: {

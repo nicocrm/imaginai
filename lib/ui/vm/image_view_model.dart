@@ -12,13 +12,12 @@ class ImageViewModel extends ChangeNotifier {
 
   ImageViewModel(this._openAIService);
 
-  Future<Result<String>> loadImage() async {
+  Future<Result<String>> loadImage(String prompt) async {
     _isLoading = true;
     notifyListeners();
 
     try {
       // Use OpenAIService to generate an image
-      final prompt = 'A beautiful landscape with mountains and a lake';
       _imageResult = await _openAIService.generateImage(prompt);
     } finally {
       _isLoading = false;
