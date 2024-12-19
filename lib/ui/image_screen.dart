@@ -1,43 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:imaginai/ui/base_screen.dart';
 import 'package:imaginai/ui/vm/image_view_model.dart';
+import 'package:imaginai/ui/widgets/image_widget.dart';
 
 class ImageScreen extends StatelessWidget {
-  const ImageScreen({super.key, required this.title, required this.vm});
-  final ImageViewModel vm;
   final String title;
+  final ImageViewModel vm;
+
+  const ImageScreen({
+    super.key, 
+    required this.title, 
+    required this.vm
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: vm,
       builder: (context, child) {
-        final result = vm.imageResult;
-        
         return BaseScreen(
           title: title,
           body: Center(
             child: vm.isLoading
                 ? const CircularProgressIndicator()
-                : result == null
-                    ? const Text('No image loaded')
-                    : result.when(
-                        success: (imageUrl) => Image.network(
-                          imageUrl,
-                          fit: BoxFit.contain,
-                          loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) return child;
-                            return const CircularProgressIndicator();
-                          },
-                          errorBuilder: (context, error, stackTrace) {
-                            return const Text('Failed to load image from network');
-                          },
-                        ),
-                        failure: (error) => Text(
-                          error,
-                          style: const TextStyle(color: Colors.red),
-                        ),
-                      ),
+                : ImageWidget(imageResult: vm.imageResult),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: vm.isLoading ? null : () => vm.loadImage(),
