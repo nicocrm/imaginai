@@ -1,8 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:imaginai/core/result.dart';
 
 class ImageWidget extends StatelessWidget {
-  final Result<String>? imageResult;
+  final Result<Uint8List>? imageResult;
 
   const ImageWidget({
     super.key, 
@@ -16,16 +18,9 @@ class ImageWidget extends StatelessWidget {
     }
 
     return imageResult!.when(
-      success: (imageUrl) => Image.network(
-        imageUrl,
+      success: (imageBytes) => Image.memory(
+        imageBytes,
         fit: BoxFit.contain,
-        loadingBuilder: (context, child, loadingProgress) {
-          if (loadingProgress == null) return child;
-          return const CircularProgressIndicator();
-        },
-        errorBuilder: (context, error, stackTrace) {
-          return const Text('Failed to load image from network');
-        },
       ),
       failure: (error) => Text(
         error,

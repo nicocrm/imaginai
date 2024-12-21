@@ -40,7 +40,10 @@ class OpenAIService {
         return Result.failure('Failed to generate image: ${response.body}');
       }
     } catch (e) {
-      debugPrint('Error: $e');
+      FlutterError.reportError(FlutterErrorDetails(
+        exception: e,
+        context: ErrorSummary('error generating image'),
+      ));
       return Result.failure('Error generating image: $e');
     }
   }

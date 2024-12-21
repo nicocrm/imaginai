@@ -13,6 +13,8 @@ class PromptWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ValueListenableBuilder(valueListenable: promptController, 
+    builder: (context, promptText, child) {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(children: [
@@ -38,16 +40,19 @@ class PromptWidget extends StatelessWidget {
               icon: const Icon(
                 Icons.send,
               ),
-              onPressed: () {
+              onPressed: promptText.text.isEmpty ? null : () {
                 vm.loadImage(promptController.text);
               }),
           IconButton(
               icon: const Icon(
                 Icons.download,
               ),
-              onPressed: () {
-                vm.downloadImage();
+              onPressed: vm.imageResult == null ? null : () {
+                vm.saveImage();
+                promptController.clear();
               }),
         ]));
+    }
+    )
   }
 }

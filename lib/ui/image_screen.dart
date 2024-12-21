@@ -36,7 +36,13 @@ class _ImageScreenState extends State<ImageScreen> {
               children: [
                 Expanded(
                   child: widget.vm.isLoading
-                      ? const CircularProgressIndicator()
+                      ? Center(
+                          child: SizedBox(
+                            width: 50,
+                            height: 50,
+                            child: const CircularProgressIndicator(),
+                          ),
+                        )
                       : ImageWidget(imageResult: widget.vm.imageResult),
                 ),
                 PromptWidget(
