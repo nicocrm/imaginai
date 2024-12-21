@@ -18,6 +18,7 @@ class ImageViewModel extends ChangeNotifier {
 
     try {
       // Use OpenAIService to generate an image
+      prompt += "\nIn the style of a Tintin comic book.  Simple drawing only, minimal background.";
       _imageResult = await _openAIService.generateImage(prompt);
     } finally {
       _isLoading = false;
