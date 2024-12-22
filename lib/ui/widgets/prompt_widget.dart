@@ -52,8 +52,8 @@ class PromptWidget extends StatelessWidget {
                     ),
                     onPressed: vm.imageResult == null
                         ? null
-                        : () {
-                            vm.saveImage();
+                        : () async {
+                            await vm.saveImage();
                             promptController.clear();
                           }),
               ]));

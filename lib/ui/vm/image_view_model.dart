@@ -1,11 +1,10 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:gal/gal.dart';
 import 'package:http/http.dart' as http;
-import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:imaginai/core/result.dart';
 import 'package:imaginai/services/openai_service.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class ImageViewModel extends ChangeNotifier {
   final OpenAIService _openAIService;
@@ -68,12 +67,11 @@ class ImageViewModel extends ChangeNotifier {
       return;
     }
     final imageBytes = (imageResult as Success<Uint8List>).value;
-    ImageGallerySaver.saveImage(imageBytes,
-        quality: 100, name: 'downloaded_image');
+    await Gal.putImageBytes(imageBytes);
   }
 
   Future<bool> _requestPermission() async {
-    final status = await Permission.storage.request();
-    return status.isGranted;
+    final status = await Gal.requestAccess();
+    return status;
   }
 }
