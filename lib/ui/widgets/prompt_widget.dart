@@ -24,10 +24,6 @@ class PromptWidget extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Prompt:',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 10),
                     DropdownButtonFormField<Scene>(
                       value: vm.scene,
                       icon: const Icon(Icons.arrow_downward),
@@ -56,6 +52,8 @@ class PromptWidget extends StatelessWidget {
                         child: TextField(
                           controller: promptController,
                           onChanged: (value) => vm.promptText = value,
+                          onEditingComplete: vm.promptText.isEmpty ? null : () => vm.loadImage(vm.promptText),
+                          enabled: vm.isLoading,
                           decoration: InputDecoration(
                             hintText: 'Enter image generation prompt',
                             border: OutlineInputBorder(
