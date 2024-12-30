@@ -25,6 +25,7 @@ class OpenAIService {
         },
         body: jsonEncode({
           'prompt': prompt,
+          'model': 'dall-e-3',
           'n': 1,
           'size': '1024x1024',
           'response_format': 'url',

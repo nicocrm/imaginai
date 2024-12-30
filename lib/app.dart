@@ -3,6 +3,9 @@ import 'package:imaginai/ui/image_screen.dart';
 import 'package:imaginai/ui/vm/image_view_model.dart';
 import 'package:imaginai/services/openai_service.dart';
 
+import 'repositories/project_repository.dart';
+import 'services/prompt_builder.dart';
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -17,7 +20,9 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     final openAIService = OpenAIService();
-    imageViewModel = ImageViewModel(openAIService);
+    final project = ProjectRepository().loadProject();
+    final promptBuilder = PromptBuilder();
+    imageViewModel = ImageViewModel(openAIService, promptBuilder, project);
   }
 
   @override
