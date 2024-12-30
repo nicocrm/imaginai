@@ -44,11 +44,14 @@ class _ImageScreenState extends State<ImageScreen> {
             ),
             IconButton(
               icon: const Icon(Icons.save),
-              onPressed: widget.vm.imageResult == null ? null : _downloadImage,
+              onPressed: widget.vm.imageResult == null
+                  ? null
+                  : () => _downloadImage(context),
             )
           ]),
           body: Center(
-            child: Column(
+            child: Form(
+                child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
@@ -60,17 +63,17 @@ class _ImageScreenState extends State<ImageScreen> {
                             child: const CircularProgressIndicator(),
                           ),
                         )
-                      : ImageWidget(imageResult: widget.vm.imageResult),
+                      : ImageWidget(
+                          imageResult: widget.vm.imageResult, vm: widget.vm),
                 ),
                 Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: Form(
-                        child: PromptWidget(
+                    child: PromptWidget(
                       promptController: _promptController,
                       vm: widget.vm,
-                    ))),
+                    )),
               ],
-            ),
+            )),
           ),
           // floatingActionButton: FloatingActionButton(
           //   onPressed: widget.vm.isLoading ? null : () => widget.vm.loadImage(''),
@@ -113,7 +116,11 @@ class _ImageScreenState extends State<ImageScreen> {
     );
   }
 
-  Future<void> _downloadImage() async {
+  Future<void> _downloadImage(BuildContext context) async {
     await widget.vm.saveImage();
+    if (context.mounted) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Image Saved')));
+    }
   }
 }

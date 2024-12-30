@@ -10,7 +10,12 @@ class ProjectRepository {
         style:
             "A simple drawing, without colors, suitable for a comic book such as the ones published in the 1960s.");
     project.scenes
-        .add(Scene(description: "A dimly lit hallway", name: "hallway"));
+        ..add(Scene(description: "A dimly lit hallway", name: "hallway"))
+        ..add(Scene(description: "A small bedroom", name: "room"))
+        ..add(Scene(description: "A mountain path", name: "mountain path"))
+        ..add(Scene(description: "An attic full of old chests", name: "attic"))
+        ..add(Scene(description: "A 21st century art museum displaying work of Leonardo Da Vinci", name: "museum"));
+
     project.characters.add(Character(
         name: "Francesca",
         description:
@@ -18,7 +23,7 @@ class ProjectRepository {
     project.characters.add(Character(
         name: "Orazio",
         description:
-            "a painter, tall, middle-aged, with a beard, wearing a beret and a smock"));
+            "a gentleman, tall, middle-aged, with a beard, formal clothes"));
     project.characters.add(Character(
         name: "Battista",
         description:
