@@ -11,7 +11,8 @@ class ProjectRepository {
             "A simple drawing, without colors, suitable for a comic book such as the ones published in the 1960s.");
     project.scenes
         ..add(Scene(description: "A dimly lit hallway", name: "hallway"))
-        ..add(Scene(description: "A small bedroom", name: "room"))
+        ..add(Scene(description: "Secret room behind the office", name: "secret room"))
+        ..add(Scene(description: "A small bedroom", name: "bedroom"))
         ..add(Scene(description: "A mountain path", name: "mountain path"))
         ..add(Scene(description: "An attic full of old chests", name: "attic"))
         ..add(Scene(description: "A 21st century art museum displaying work of Leonardo Da Vinci", name: "museum"));
