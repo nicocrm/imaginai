@@ -22,12 +22,12 @@ class PromptBuilderInstance {
   String buildPrompt(String prompt) {
     final buf = StringBuffer();
     buf.write("DO NOT add any detail to this prompt, just use it AS IT IS.\n");
-    buf.write("Context: ${project.context}\n");
+    buf.write("Contexte: ${project.context}\n");
     buf.write("Style: ${project.style}\n");
-    buf.write("Scene: ${scene.description}\n");
+    buf.write("Scène: ${scene.description}\n");
     for (final character in characters) {
       buf.write(
-          "Character: ${character.name} - description: ${character.description}\n");
+          "Personnage: ${character.name} - description: ${character.description}\n");
     }
     buf.write("Action: $prompt\n");
     return buf.toString();

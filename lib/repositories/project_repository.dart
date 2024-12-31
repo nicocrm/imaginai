@@ -5,30 +5,30 @@ import '../models/scene.dart';
 class ProjectRepository {
   Project loadProject() {
     final project = Project(
-        name: "Leonardo's inquiry",
-        context: "Italy in the renaissance era",
+        name: "Enquête sur Léonard",
+        context: "Italie dans l'era du renaisance",
         style:
-            "A simple drawing, without colors, suitable for a comic book such as the ones published in the 1960s.");
+            "Un dessin simple, sans couleurs, adapté aux livres de comics tels que ceux publiés dans les années 1960.");
     project.scenes
-        ..add(Scene(description: "A dimly lit hallway", name: "hallway"))
-        ..add(Scene(description: "Secret room behind the office", name: "secret room"))
-        ..add(Scene(description: "A small bedroom", name: "bedroom"))
-        ..add(Scene(description: "A mountain path", name: "mountain path"))
-        ..add(Scene(description: "An attic full of old chests", name: "attic"))
-        ..add(Scene(description: "A 21st century art museum displaying work of Leonardo Da Vinci", name: "museum"));
+        ..add(Scene(description: "Une corridor sombre", name: "corridor"))
+        ..add(Scene(description: "Une chambre secrète derrière le bureau", name: "chambre"))
+        ..add(Scene(description: "Une petite chambre", name: "chambre"))
+        ..add(Scene(description: "Un chemin montagneux", name: "chemin"))
+        ..add(Scene(description: "Un grenier plein de coffres anciens", name: "attique"))
+        ..add(Scene(description: "Un musee moderne affichant le travail de Leonardo Da Vinci", name: "musee"));
 
     project.characters.add(Character(
         name: "Francesca",
         description:
-            "a 12-year old girl, with long, dark hair, fair skin, wearing a simple dress"));
+            "une jeune fille de 12 ans, avec des cheveux longs et noirs, peau claire, portant une simple robe"));
     project.characters.add(Character(
         name: "Orazio",
         description:
-            "a gentleman, tall, middle-aged, with a beard, formal clothes"));
+            "un homme de taille moyenne, la quarantaine, avec un barbe, vêtements formels"));
     project.characters.add(Character(
         name: "Battista",
         description:
-            "the butler, old, stiff, very formal clothes but showing their age"));
+            "le domestique, vieux, rigide, vêtements formels montrant leur age"));
     return project;
   }
 

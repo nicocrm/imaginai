@@ -93,18 +93,18 @@ class _ImageScreenState extends State<ImageScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Create New Image'),
+          title: const Text('Nouvelle image'),
           content: const Text(
-              'Image has not been saved - are you sure you want to create a new image?'),
+              'Créer une nouvelle image? L\'image actuelle n\'est pas sauvegardée.'),
           actions: <Widget>[
             TextButton(
-              child: const Text('Cancel'),
+              child: const Text('Annuler'),
               onPressed: () {
                 Navigator.of(context).pop(); // Dismiss the dialog
               },
             ),
             TextButton(
-              child: const Text('Confirm'),
+              child: const Text('Oui!'),
               onPressed: () {
                 Navigator.of(context).pop(); // Dismiss the dialog
                 widget.vm.reset();
@@ -120,7 +120,7 @@ class _ImageScreenState extends State<ImageScreen> {
     await widget.vm.saveImage();
     if (context.mounted) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Image Saved')));
+          .showSnackBar(const SnackBar(content: Text('Image sauvegardée!')));
     }
   }
 }

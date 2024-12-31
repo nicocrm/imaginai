@@ -34,7 +34,7 @@ class PromptWidget extends StatelessWidget {
                       },
                       validator: (value) {
                         if (value == null) {
-                          return 'Scene is required';
+                          return 'Indique la scène';
                         }
                         return null;
                       },
@@ -55,7 +55,7 @@ class PromptWidget extends StatelessWidget {
                           onEditingComplete: vm.promptText.isEmpty ? null : () => vm.loadImage(vm.promptText),
                           enabled: vm.isLoading,
                           decoration: InputDecoration(
-                            hintText: 'Enter image generation prompt',
+                            hintText: 'Tape la description de l\'image',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),

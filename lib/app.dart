@@ -28,12 +28,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Image Generator',
+      title: 'ImaginAI',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ImageScreen(title: 'Image Generator', vm: imageViewModel),
+      home: ImageScreen(title: 'Générer une image', vm: imageViewModel),
     );
   }
 }
