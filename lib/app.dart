@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:imaginai/ui/image_screen.dart';
-import 'package:imaginai/ui/vm/image_view_model.dart';
-import 'package:imaginai/services/openai_service.dart';
+import 'ui/image_screen.dart';
+import 'ui/vm/image_view_model.dart';
+import 'services/openai_service.dart';
 
 import 'repositories/project_repository.dart';
 import 'services/prompt_builder.dart';

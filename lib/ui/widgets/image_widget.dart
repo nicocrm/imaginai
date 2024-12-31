@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:imaginai/core/result.dart';
-import 'package:imaginai/ui/vm/image_view_model.dart';
+import '../../core/result.dart';
+import '../vm/image_view_model.dart';
 
 class ImageWidget extends StatelessWidget {
   final Result<Uint8List>? imageResult;
