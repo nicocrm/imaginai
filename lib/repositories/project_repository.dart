@@ -11,7 +11,8 @@ class ProjectRepository {
             "Un dessin simple, sans couleurs, adapté aux livres de comics tels que ceux publiés dans les années 1960.");
     project.scenes
         ..add(Scene(description: "Une corridor sombre", name: "corridor"))
-        ..add(Scene(description: "Une chambre secrète derrière le bureau", name: "chambre"))
+        ..add(Scene(description: "Une chambre secrète derrière le bureau", name: "chambre secrète"))
+        ..add(Scene(description: "Un bureau avec une fenêtre qui donne sur les montagnes", name: "bureau grand-père"))
         ..add(Scene(description: "Une petite chambre", name: "chambre"))
         ..add(Scene(description: "Un chemin montagneux", name: "chemin"))
         ..add(Scene(description: "Un grenier plein de coffres anciens", name: "attique"))
