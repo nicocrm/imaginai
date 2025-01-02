@@ -53,7 +53,7 @@ class PromptWidget extends StatelessWidget {
                           controller: promptController,
                           onChanged: (value) => vm.promptText = value,
                           onEditingComplete: vm.promptText.isEmpty ? null : () => vm.loadImage(vm.promptText),
-                          enabled: vm.isLoading,
+                          enabled: !vm.isLoading,
                           decoration: InputDecoration(
                             hintText: 'Tape la description de l\'image',
                             border: OutlineInputBorder(

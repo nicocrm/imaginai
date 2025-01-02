@@ -27,7 +27,9 @@ class _ImageScreenState extends State<ImageScreen> {
   void initState() {
     super.initState();
     widget.vm.addListener(() {
-      _promptController.text = widget.vm.promptText;
+      if (_promptController.text != widget.vm.promptText) {
+        _promptController.text = widget.vm.promptText;
+      }
     });
   }
 

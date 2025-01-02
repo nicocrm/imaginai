@@ -19,6 +19,7 @@ class CharacterSelectionWidget extends StatelessWidget {
   CheckboxListTile buildCharacterCheckbox(Character character) {
     return CheckboxListTile(
       title: Text(character.name),
+      enabled: !vm.isLoading,
       value: vm.characters.contains(character),
       onChanged: (value) => vm.toggleCharacter(character),
     );
