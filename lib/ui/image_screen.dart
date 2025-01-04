@@ -119,10 +119,19 @@ class _ImageScreenState extends State<ImageScreen> {
   }
 
   Future<void> _downloadImage(BuildContext context) async {
-    await widget.vm.saveImage();
-    if (context.mounted) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Image sauvegardée!')));
+    try {
+      await widget.vm.saveImage();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Image sauvegardée!')));
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Theme.of(context).colorScheme.error,
+              content: Text('Une erreur est survenue')));
+      }
     }
   }
 }

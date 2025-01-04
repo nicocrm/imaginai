@@ -1,11 +1,9 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import '../../core/result.dart';
 import '../vm/image_view_model.dart';
 
 class ImageWidget extends StatelessWidget {
-  final Result<Uint8List>? imageResult;
+  final Result<String>? imageResult;
   final ImageViewModel vm;
 
   const ImageWidget({super.key, required this.imageResult, required this.vm});
@@ -33,11 +31,11 @@ class ImageWidget extends StatelessWidget {
 
     // When an image is loaded, show the image with a small faded refresh icon overlay
     return imageResult!.when(
-      success: (imageBytes) => Center(child: Stack(
+      success: (imageUrl) => Center(child: Stack(
         alignment: Alignment.topRight,
         children: [
-          Image.memory(
-            imageBytes,
+          Image.network(
+            imageUrl,
             fit: BoxFit.contain,
           ),
           Positioned(
