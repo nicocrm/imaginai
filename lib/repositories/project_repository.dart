@@ -16,7 +16,7 @@ class ProjectRepository {
         ..add(Scene(description: "Une petite chambre", name: "chambre"))
         ..add(Scene(description: "Un chemin montagneux", name: "chemin"))
         ..add(Scene(description: "Un grenier plein de coffres anciens", name: "grenier"))
-        ..add(Scene(description: "Un musee moderne affichant le travail de Leonardo Da Vinci", name: "musee"));
+        ..add(Scene(description: "Un musee moderne affichant le travail de Leonardo Da Vinci", name: "musée"));
 
     project.characters.add(Character(
         name: "Francesca",
